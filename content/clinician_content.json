@@ -1,0 +1,68 @@
+{
+  "default_reply": {
+    "en": "I hear you. Can you tell me a bit more in a sentence or two? You can also use Quick Actions.",
+    "bn": "আমি শুনছি। এক বা দুই বাক্যে আরও বলো। তুমি Quick Actions ও ব্যবহার করতে পারো।",
+    "es": "Te escucho. ¿Puedes contarme un poco más en una o dos frases?",
+    "fr": "Je t'écoute. Peux-tu m'en dire un peu plus en une ou deux phrases ?",
+    "zh": "我在听。你能用一两句话说得更具体吗？",
+    "hi": "मैं सुन रहा हूँ। क्या आप एक-दो वाक्य में और बता सकते हैं?",
+    "ar": "أنا أسمعك. هل يمكنك إخباري بالمزيد بجملة أو جملتين؟",
+    "ru": "Я слышу тебя. Можешь рассказать немного подробнее в одном-двух предложениях?",
+    "pt": "Estou a ouvir. Podes dizer-me um pouco mais em uma ou duas frases?",
+    "ur": "میں سن رہا/رہی ہوں۔ کیا آپ ایک یا دو جملوں میں اور بتا سکتے ہیں؟"
+  },
+  "small_talk": {
+    "en": "It’s okay to share a little. How are you feeling right now?",
+    "bn": "একটু ভাগ করে নাও। তুমি এখন কেমন অনুভব করছো?"
+  },
+  "safety_templates": {
+    "en": "I’m really sorry you’re feeling this way. If you are in immediate danger, please call your local emergency number now. Would you like resources or to contact a human helper?",
+    "bn": "তুমি এত কষ্টে আছো এটা জানতে দুঃখ লাগল। যদি তুমি এখনই বিপদে থাকো, দয়া করে তোমার স্থানীয় জরুরি নম্বরে কল করো। তুমি কি সাহায্য চাও?"
+  },
+  "cbt": {
+    "en": {
+      "title": "Short CBT (3 steps)",
+      "steps": [
+        {
+          "step": "Situation",
+          "prompt": "What happened? (short)"
+        },
+        {
+          "step": "Feeling",
+          "prompt": "What are you feeling (1-5)?"
+        },
+        {
+          "step": "Thought",
+          "prompt": "What automatic thought came to mind?"
+        }
+      ]
+    },
+    "bn": {
+      "title": "সংক্ষিপ্ত CBT (৩ ধাপ)",
+      "steps": [
+        {
+          "step": "পরিস্থিতি",
+          "prompt": "কি ঘটলো? (সংক্ষিপ্ত)"
+        },
+        {
+          "step": "অনুভূতি",
+          "prompt": "কেমন লাগছে? (১-৫)"
+        },
+        {
+          "step": "চিন্তা",
+          "prompt": "স্বতঃস্ফুর্ত চিন্তা কি ছিল?"
+        }
+      ]
+    }
+  },
+  "breathing": {
+    "en": {
+      "title": "Box breathing",
+      "guide": "Inhale 4s — Hold 4s — Exhale 4s — Hold 4s. Repeat 3 cycles."
+    },
+    "bn": {
+      "title": "বক্স শ্বাস-প্রশ্বাস",
+      "guide": "৪ সেকেন্ড নাও — ৪ সেকেন্ড ধরে রাখো — ৪ সেকেন্ড ছাড়ো — ৪ সেকেন্ড থামো। ৩ বার করো।"
+    }
+  }
+}
