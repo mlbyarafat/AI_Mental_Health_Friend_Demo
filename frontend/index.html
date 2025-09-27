@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Mental Health Friend — Demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">MH</div>
+        <div>
+          <h1 data-i18n="title">AI Mental Health Friend — Demo</h1>
+          <p class="lead" data-i18n="lead">A gentle, private demo to check-in, breathe, and reframe thoughts.</p>
+        </div>
+      </div>
+      <div style="margin-left:auto;display:flex;gap:8px;align-items:center">
+        <button class="btn small ghost" id="exportBtnTop" data-i18n="export">Export Data</button>
+        <button class="btn small primary" id="startBtnTop" data-i18n="start">Quick Start</button>
+      </div>
+    </header>
+
+    <div class="grid">
+      <aside class="sidebar">
+        <div class="profile">
+          <div class="avatar">A</div>
+          <div class="meta">
+            <h3 data-i18n="welcome">Welcome</h3>
+            <p data-i18n="choose">Choose language, age group and consent to start the demo.</p>
+          </div>
+        </div>
+
+        <div class="section">
+          <label data-i18n="language">Language</label>
+          <select id="lang">
+            <option value="en">English</option>
+            <option value="bn">বাংলা</option>
+            <option value="zh">中文</option>
+            <option value="hi">हिंदी</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+            <option value="ar">العربية</option>
+            <option value="ru">Русский</option>
+            <option value="pt">Português</option>
+            <option value="ur">اردو</option>
+          </select>
+        </div>
+
+        <div class="section">
+          <label data-i18n="age">Age group</label>
+          <select id="age">
+            <option value="18-25">18-25</option>
+            <option value="26-45">26-45</option>
+            <option value="46+">46+</option>
+          </select>
+        </div>
+
+        <div class="section">
+          <label style="display:flex;align-items:center;gap:8px">
+            <input type="checkbox" id="consent"> 
+            <span data-i18n="consent">I consent to basic data storage (demo)</span>
+          </label>
+        </div>
+
+        <div class="section actions">
+          <button class="btn primary" id="startBtn" data-i18n="start">Start</button>
+          <button class="btn" id="moodBtn" data-i18n="record_mood">Record Mood</button>
+          <button class="btn" id="breathBtn" data-i18n="breathing">Breathing Exercise</button>
+          <button class="btn" id="cbtBtn" data-i18n="cbt">Short CBT</button>
+        </div>
+
+        <div class="section">
+          <h4 data-i18n="export">Quick Export</h4>
+          <p class="help" data-i18n="export">Download your demo journal as JSON for personal use.</p>
+          <button class="btn ghost" id="exportBtn" data-i18n="export">Export Data</button>
+        </div>
+
+        <div class="section">
+          <h4 data-i18n="help_title">Help</h4>
+          <p class="help" data-i18n="help">If you are in immediate danger, contact local emergency services. This is a demo—not a substitute for professional care.</p>
+        </div>
+      </aside>
+
+      <main class="chatcard">
+        <div class="chat-head">
+          <div>
+            <strong>Session</strong>
+            <div class="muted">Private demo • Local-only storage</div>
+          </div>
+          <div class="status">
+            <div style="text-align:right">
+              <div style="font-weight:600">AI Coach</div>
+              <div class="muted small">Ready to listen</div>
+            </div>
+            <div class="dot"></div>
+          </div>
+        </div>
+
+        <div id="chatWindow" class="chat-window">
+          <div class="bubble assistant">Hi — I’m your friendly demo assistant. How are you feeling today?</div>
+        </div>
+
+        <div class="chat-input">
+          <div class="input">
+            <input id="chatInput" placeholder="Share a thought or type a quick check-in..." />
+            <div style="display:flex;gap:8px;align-items:center">
+              <button class="btn small" id="moodQuick">Mood</button>
+              <button class="btn small" id="breathQuick">Breathe</button>
+            </div>
+          </div>
+          <div class="controls">
+            <button class="btn primary" id="sendBtn">Send</button>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <footer data-i18n="footer">
+      Built for demo — not a replacement for professional help.
+    </footer>
+  </div>
+
+  <!-- Templates -->
+  <template id="moodTemplate">
+    <div class="modal-card">
+      <h3 data-i18n="record_mood">Record Mood</h3>
+      <div class="modal-grid">
+        <div class="mood-row">
+          <div style="flex:1">
+            <label>Rating (1 low - 5 high)</label>
+            <input id="moodRating" type="range" min="1" max="5" value="3" />
+          </div>
+          <div class="mood-dot" id="moodPreview">3</div>
+        </div>
+        <div>
+          <label>Note (optional)</label>
+          <input id="moodNote" />
+        </div>
+        <div class="modal-actions">
+          <button class="btn ghost close">Close</button>
+          <button class="btn primary save">Save</button>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <template id="breathTemplate">
+    <div class="modal-card center">
+      <h3 data-i18n="breathing">Box Breathing</h3>
+      <p class="muted" data-i18n="breathing">Follow the circle as you inhale, hold, exhale, hold (3 cycles)</p>
+      <div class="breath-circle breath-anim">Breathe</div>
+      <div class="modal-actions">
+        <button class="btn ghost close">Close</button>
+      </div>
+    </div>
+  </template>
+
+  <template id="cbtTemplate">
+    <div class="modal-card">
+      <h3 data-i18n="cbt">Short CBT — Reframe</h3>
+      <div id="cbtContent">
+        <p class="muted">Step 1: Describe the situation in one sentence.</p>
+      </div>
+      <div class="modal-actions">
+        <button class="btn ghost close">Close</button>
+        <button class="btn primary next">Next</button>
+      </div>
+    </div>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
